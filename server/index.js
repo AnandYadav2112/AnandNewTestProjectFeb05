@@ -16,12 +16,14 @@ const tasksRouter = require('./routes/tasks');
 const leavesRouter = require('./routes/leaves');
 const capacityRouter = require('./routes/capacity');
 const conversationsRouter = require('./routes/conversations');
+const decisionsRouter = require('./routes/decisions');
 
 // Use routes
 app.use('/api/tasks', tasksRouter);
 app.use('/api/leaves', leavesRouter);
 app.use('/api/capacity', capacityRouter);
 app.use('/api/conversations', conversationsRouter);
+app.use('/api/decisions', decisionsRouter);
 
 // Root endpoint
 app.get('/', (req, res) => {

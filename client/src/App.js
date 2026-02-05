@@ -4,9 +4,10 @@ import Tasks from './components/Tasks';
 import Leaves from './components/Leaves';
 import Capacity from './components/Capacity';
 import Conversations from './components/Conversations';
+import DecisionMaker from './components/DecisionMaker';
 
 function App() {
-  const [activeTab, setActiveTab] = useState('tasks');
+  const [activeTab, setActiveTab] = useState('decisions');
 
   return (
     <div className="App">
@@ -16,6 +17,12 @@ function App() {
       </header>
       
       <nav className="tab-navigation">
+        <button 
+          className={activeTab === 'decisions' ? 'active' : ''} 
+          onClick={() => setActiveTab('decisions')}
+        >
+          Decision Maker
+        </button>
         <button 
           className={activeTab === 'tasks' ? 'active' : ''} 
           onClick={() => setActiveTab('tasks')}
@@ -43,6 +50,7 @@ function App() {
       </nav>
 
       <main className="content">
+        {activeTab === 'decisions' && <DecisionMaker />}
         {activeTab === 'tasks' && <Tasks />}
         {activeTab === 'leaves' && <Leaves />}
         {activeTab === 'capacity' && <Capacity />}
